@@ -254,6 +254,7 @@ async function getImageById(id, withSource){
     Listener Functions
  */
 function initListenerObject(dotNetLstnr){
+    window.listenerNET = {}
     window.listenerNET.net = dotNetLstnr
     window.listenerNET.listeners = []
 }
