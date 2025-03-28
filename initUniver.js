@@ -216,13 +216,13 @@ async function insertComment(comment){
         .getActiveSheet()
         .getActiveRange();
 
-    const comment = window.univerAPI.newTheadComment()
+    const _comment = window.univerAPI.newTheadComment()
                                     .setContent(window.univerAPI.newRichText().insertText(comment.text.dataStream))
                                     .setDateTime(new Date(comment.dT))
                                     .setId(comment.id)
                                     .setPersonId(comment.userId)
                                     .build()
-    await range.addCommentAsync(comment)
+    await range.addCommentAsync(_comment)
 }
 
 function getAllComments(){
