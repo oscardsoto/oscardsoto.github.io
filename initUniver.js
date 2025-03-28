@@ -2,7 +2,7 @@
  * Initialize Univer from server's configuration
  * @param {*} config Configuration object to initialize the component
  */
-export function initUniver(config){
+function initUniver(config){
     
     /**
      * config attributes:
@@ -134,7 +134,7 @@ function getPlugins(config){
 //UniverPresetSheetsConditionalFormattingEnUS,
 // Función para el "ActivityPool": Evento en server que ejecuta los métodos del apuntador de acuerdo al nombre del método y sus respectivos argumentos.
 // Devuelve el valor nuevo del apuntador, y arroja nulo en caso de que el método no exista
-export function getAndExecuteMethod(queue, toReturn){
+function getAndExecuteMethod(queue, toReturn){
     var result = null
     for (var i = 0; i < queue.length; i++){
         if (i == 0){
@@ -168,7 +168,7 @@ function isPromise(value) {
 /* 
     Additional functions 
 */
-export function getSheetsInfo(){
+function getSheetsInfo(){
     var result = []
     window.univerAPI.getActiveWorkbook().getSheets().forEach(sheet => {
         result.push({
@@ -181,9 +181,9 @@ export function getSheetsInfo(){
     return result
 }
 
-export function getCellsStylesInfo(){
+function getCellsStylesInfo(){
     var result = []
-    univerAPI.getActiveWorkbook().getActiveSheet().getActiveRange().getCellStyles().forEach(styleArray => {
+    window.univerAPI.getActiveWorkbook().getActiveSheet().getActiveRange().getCellStyles().forEach(styleArray => {
         var arrayStyles = []
         styleArray.forEach(style => {
             if (!style){
@@ -198,7 +198,7 @@ export function getCellsStylesInfo(){
     return result
 }
 
-export function insertHyperLink(text, link){
+function insertHyperLink(text, link){
     const range = window.univerAPI.getActiveWorkbook()
         .getActiveSheet()
         .getActiveRange();
@@ -211,7 +211,7 @@ export function insertHyperLink(text, link){
     range.setRichTextValueForCell(richText);
 }
 
-export async function insertComment(comment){
+async function insertComment(comment){
     const range = window.univerAPI.getActiveWorkbook()
         .getActiveSheet()
         .getActiveRange();
@@ -225,21 +225,21 @@ export async function insertComment(comment){
     await range.addCommentAsync(comment)
 }
 
-export function getAllComments(){
+function getAllComments(){
     const comments = window.univerAPI.getActiveWorkbook().getActiveSheet().getComments()
     var result = []
     comments.forEach((comment) => { result.push(comment.getCommentData()) });
     return result;
 }
 
-export function getImagesId(){
+function getImagesId(){
     const images = window.univerAPI.getActiveWorkbook().getActiveSheet().getImages()
     var result = []
     images.forEach((img) => { result.push(img.getId()) })
     return result
 }
 
-export async function getImageById(id, withSource){
+async function getImageById(id, withSource){
     const image = null
     await window.univerAPI.getActiveWorkbook().getActiveSheet().getImageById(id).toBuilder().buildAsync().then(result => {
         if (!withSource){
@@ -253,16 +253,16 @@ export async function getImageById(id, withSource){
 /* 
     Listener Functions
  */
-export function initListenerObject(dotNetLstnr){
+function initListenerObject(dotNetLstnr){
     window.listenerNET.net = dotNetLstnr
     window.listenerNET.listeners = []
 }
 
-export function addListenerRange(listener) { 
+function addListenerRange(listener) { 
     window.listenerNET.listeners.push(listener)
 }
 
-export function removeListener(listener) {
+function removeListener(listener) {
     var index = window.listenerNET.listeners.indexOf(listener)
     if (index > -1){
         window.listenerNET.listeners.splice(index, 1)
