@@ -1,0 +1,45 @@
+<div class="link-wrapper">
+  {% if site.platforms %}
+  <ul class="link">
+    {%- for platform in site.platforms %}
+    <li><a href="{{ platform.link }}">{{ platform.icon }}&nbsp;{{ platform.name }}</a></li>
+    {%- endfor %}
+  </ul>
+  {% endif %}
+
+  {% if site.navigation %}
+  {% if page.en == true %}
+    <h3 class="sidebar-h3">Contents:</h3>
+  {% else %}
+    <h3 class="sidebar-h3">Contenido:</h3>
+  {% endif %}
+  <ul class="content">
+  {%- for item in site.navigation %}
+    <li>
+        <a href="{% if page.en == true %}{{ item.link_en }}{% else %}{{ item.link }}{% endif %}">
+            {% if item.name_en != "" and page.en == true %}
+                {{ item.name_en }}
+            {% else %}
+                {{ item.name }}
+            {% endif %}
+        </a>
+        {% if item.sublist %}
+        <ul class="sublist">
+            {%- for subitem in item.sublist %}
+            <li>
+                <a href="{% if page.en == true %}{{ subitem.link_en }}{% else %}{{ subitem.link }}{% endif %}">
+                {% if subitem.name_en != "" and page.en == true %}
+                    {{ subitem.name_en }}
+                {% else %}
+                    {{ subitem.name }}
+                {% endif %}
+                </a>
+            </li>
+            {%- endfor %}
+        </ul>
+        {% endif %}
+    </li>
+  {%- endfor %}
+  </ul>
+  {% endif %}
+</div>

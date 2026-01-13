@@ -1,0 +1,18 @@
+{%- assign prjs = site.projects %}
+{%- if include.limit != 0 %}
+    {% assign prjs = prjs | slice: 0, {{include.limit}} %}
+{%- endif %}
+{%- for pry in prjs %}
+<div class="card">
+    <div style="display: flex;flex-direction: row;">
+        <img src="{{ pry.image_ref }}" style="width: 60px; height: auto; object-fit: contain; flex-shrink: 0; padding-right: 1rem;">
+        <div style="overflow-x:auto">
+            <h3>{{ pry.name }}</h3>
+            <p>{% if page.en == true %}{{ pry.description_en }}{% else %}{{ pry.description }}{% endif %}</p>
+        </div>
+    </div>
+    <a href="{% if page.en == true and pry.link_en %}{{ pry.link_en }}{% else %}{{ pry.link }}{% endif %}">
+        <span class="card-link-spanner"></span>
+    </a>
+</div>
+{%- endfor %}

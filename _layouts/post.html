@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% assign m = page.pdate[1] | plus: -1 -%}
+{% unless page.nodate %}
+    {%- if page.en == true %}
+        <small>{{ site.data.months["month_en"][m] }} · {{ page.pdate[0] }} · {{ page.pdate[2] }}</small>
+    {%- else %}
+        <small>{{ page.pdate[0] }} · {{ site.data.months["month"][m] }} · {{ page.pdate[2] }}</small>
+    {%- endif %}
+{% endunless %}
+<h1>{{ page.title }}</h1>
+
+<p class="view">by {{ page.author | default: site.author }}</p>
+
+{{content}}
+
+{% if page.tags %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}

@@ -1,0 +1,20 @@
+{% assign posts = site.posts | where: "en", page.en %}
+{% for post in posts %}
+<div class="card">
+    <div style="display: flex;flex-direction: row;">
+        <div style="overflow-x:auto">
+            {% assign m = post.pdate[1] | plus: -1 -%}
+            {%- if page.en == true %}
+                <small>{{ site.data.months["month_en"][m] }} · {{ post.pdate[0] }} · {{ post.pdate[2] }}</small>
+            {%- else %}
+                <small>{{ post.pdate[0] }} · {{ site.data.months["month"][m] }} · {{ post.pdate[2] }}</small>
+            {%- endif %}
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+        </div>
+    </div>
+    <a href="{{ post.url }}">
+        <span class="card-link-spanner"></span>
+    </a>
+</div>
+{% endfor %}

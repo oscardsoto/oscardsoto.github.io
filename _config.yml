@@ -1,0 +1,59 @@
+title:        Oscar D. Soto
+author:       Oscar D. Soto
+logo:         /assets/img/logo.jpg
+email:        oscar.david.rda@gmail.com
+description:  Desarrollador Back-end con 5 años de experiencia con .NET
+favicon:      true
+color-scheme: dark
+
+# English variables
+description_en: Back-end developer, with 5 years of experience with .NET
+
+# My Projects!!!
+projects:
+  - name:           BlazorSessionProvider
+    description:    Una librería de Blazor Server que maneja sesiones dentro de la aplicación (y no en el navegador)
+    description_en: A Blazor Server library that handle sessions inside the application (not in the browser)
+    image_ref:      /assets/img/bsp.png
+    link:           /projects/blazorsessionprovider
+    link_en:        /en/projects/blazorsessionprovider
+  - name:           UniverBlazored
+    description:    Univer Blazored es una adaptación de C# del framework Univer, usando su CDN original para la integración en aplicaciones de Blazor Server
+    description_en: Univer Blazored is a C# adaptation of the Univer framework, using its original CDN for integration into Blazor applications.
+    image_ref:      /assets/img/univerblz.png
+    link:           https://oscardsoto.github.io/univer-blazored-docs/
+  - name:           UniverBlazored.SpreadsheetConverter
+    description:    Extensión de UniverBlazored que permite importar y exportar archivos Excel con las herramientas que posee UniverBlazored
+    description_en: Extension of UniverBlazored that import and export Excel files with the tools provided by UniverBlazored.
+    image_ref:      /assets/img/univerblz.png
+    link:           https://oscardsoto.github.io/univer-blazored-docs/spreadsheet-converter/
+
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
+
+platforms:
+  - name: GitHub
+    icon: <i class="fa-brands fa-github"></i>
+    link: https://github.com/oscardsoto
+  - name: LinkedIn
+    icon: <i class="fa-brands fa-linkedin"></i>
+    link: https://www.linkedin.com/in/oscar-d-soto
+  - name: Curriculum Vitae
+    icon: <i class="fa fa-file"></i>
+    link: "#"
+
+navigation:
+  - name: Acerca de mi
+    name_en: About me
+    link: /
+    link_en: /en/
+    sublist:
+      - name: Proyectos
+        name_en: Projects
+        link: /projects/
+        link_en: /en/projects/
+  - name: Blog
+    link: /blog/
