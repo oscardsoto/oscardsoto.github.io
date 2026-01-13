@@ -43,7 +43,8 @@ platforms:
     link: https://www.linkedin.com/in/oscar-d-soto
   - name: Curriculum Vitae
     icon: <i class="fa fa-file"></i>
-    link: "#"
+    link: /assets/doc/Oscar-CV.pdf
+    link_en: /assets/doc/Oscar-CV-EN.pdf
 
 navigation:
   - name: Acerca de mi

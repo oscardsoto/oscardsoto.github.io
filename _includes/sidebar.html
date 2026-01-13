@@ -2,7 +2,7 @@
   {% if site.platforms %}
   <ul class="link">
     {%- for platform in site.platforms %}
-    <li><a href="{{ platform.link }}">{{ platform.icon }}&nbsp;{{ platform.name }}</a></li>
+        <li><a href="{% if platform.link_en and page.en == true %}{{ platform.link_en }}{% else %}{{ platform.link }}{% endif %}" target="_blank">{{ platform.icon }}&nbsp;{{ platform.name }}</a></li>
     {%- endfor %}
   </ul>
   {% endif %}
